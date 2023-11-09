@@ -1,26 +1,560 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/11/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+    <title>Radar Chart</title>
+    <url>/2023/11/09/RadarChart/</url>
+    <content><![CDATA[<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+                <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
 
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</head>
+<body >
+    <div id="83e68693cce9482c90c25f5bb39164d2" class="chart-container" style="width:900px; height:500px; "></div>
+    <script>
+        var chart_83e68693cce9482c90c25f5bb39164d2 = echarts.init(
+            document.getElementById('83e68693cce9482c90c25f5bb39164d2'), 'white', {renderer: 'canvas'});
+        var option_83e68693cce9482c90c25f5bb39164d2 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "color": [
+        "#5470c6",
+        "#91cc75",
+        "#fac858",
+        "#ee6666",
+        "#73c0de",
+        "#3ba272",
+        "#fc8452",
+        "#9a60b4",
+        "#ea7ccc"
+    ],
+    "series": [
+        {
+            "type": "radar",
+            "name": "KC-767",
+            "data": [
+                {
+                    "name": "KC-767",
+                    "value": [
+                        114000,
+                        12200,
+                        3407,
+                        82000,
+                        186880
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#5470c6"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.2
+            }
+        },
+        {
+            "type": "radar",
+            "name": "KC-10A",
+            "data": [
+                {
+                    "name": "KC-10A",
+                    "value": [
+                        161508,
+                        7031,
+                        5678,
+                        111132,
+                        267624
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#91cc75"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.2
+            }
+        },
+        {
+            "type": "radar",
+            "name": "KC-135A",
+            "data": [
+                {
+                    "name": "KC-135A",
+                    "value": [
+                        90719,
+                        8766,
+                        1514,
+                        55000,
+                        146000
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#fac858"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.2
+            }
+        },
+        {
+            "type": "radar",
+            "name": "\u4f0a\u5c1478M",
+            "data": [
+                {
+                    "name": "\u4f0a\u5c1478M",
+                    "value": [
+                        146000,
+                        5000,
+                        4000,
+                        98000,
+                        210000
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#ee6666"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.2
+            }
+        },
+        {
+            "type": "radar",
+            "name": "\u8fd020",
+            "data": [
+                {
+                    "name": "\u8fd020",
+                    "value": [
+                        150000,
+                        7600,
+                        5000,
+                        100000,
+                        220000
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#73c0de"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.2
+            }
+        },
+        {
+            "type": "radar",
+            "name": "\u8f70\u6cb9\u516d",
+            "data": [
+                {
+                    "name": "\u8f70\u6cb9\u516d",
+                    "value": [
+                        34220,
+                        7000,
+                        1500,
+                        41000,
+                        75800
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#3ba272"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.2
+            }
+        },
+        {
+            "type": "radar",
+            "name": "A330MRTT",
+            "data": [
+                {
+                    "name": "A330MRTT",
+                    "value": [
+                        110000,
+                        14800,
+                        4540,
+                        125000,
+                        242000
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#fc8452"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.2
+            }
+        },
+        {
+            "type": "radar",
+            "name": "A400M\u8fd0\u8f93\u52a0\u6cb9\u673a",
+            "data": [
+                {
+                    "name": "A400M\u8fd0\u8f93\u52a0\u6cb9\u673a",
+                    "value": [
+                        58000,
+                        9300,
+                        3000,
+                        70000,
+                        141000
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#9a60b4"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.2
+            }
+        },
+        {
+            "type": "radar",
+            "name": "kc46A",
+            "data": [
+                {
+                    "name": "kc46A",
+                    "value": [
+                        96000,
+                        12200,
+                        4542,
+                        82000,
+                        181000
+                    ]
+                }
+            ],
+            "label": {
+                "show": false,
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": "#ea7ccc"
+                }
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 2,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            },
+            "areaStyle": {
+                "opacity": 0.2
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "KC-767",
+                "KC-10A",
+                "KC-135A",
+                "\u4f0a\u5c1478M",
+                "\u8fd020",
+                "\u8f70\u6cb9\u516d",
+                "A330MRTT",
+                "A400M\u8fd0\u8f93\u52a0\u6cb9\u673a",
+                "kc46A"
+            ],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "radiusAxis": {
+        "nameGap": 15,
+        "inverse": false,
+        "min": 0,
+        "max": 30,
+        "scale": false,
+        "splitNumber": 5,
+        "interval": 10,
+        "minInterval": 0,
+        "splitArea": {
+            "show": false,
+            "areaStyle": {
+                "opacity": 1
+            }
+        },
+        "axisLabel": {
+            "show": false,
+            "margin": 8
+        }
+    },
+    "angleAxis": {
+        "startAngle": 90,
+        "clockwise": false,
+        "min": 0,
+        "max": 360,
+        "scale": false,
+        "splitNumber": 5,
+        "interval": 72,
+        "splitLine": {
+            "show": true,
+            "lineStyle": {
+                "show": true,
+                "width": 1,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid"
+            }
+        },
+        "axisLine": {
+            "show": false,
+            "onZero": true,
+            "onZeroAxisIndex": 0
+        },
+        "axisTick": {
+            "show": false,
+            "alignWithLabel": false,
+            "inside": false
+        },
+        "axisLabel": {
+            "show": false,
+            "margin": 8
+        }
+    },
+    "polar": {},
+    "radar": [
+        {
+            "indicator": [
+                {
+                    "name": "\u6700\u5927\u8f7d\u6cb9\u91cf",
+                    "max": 161508,
+                    "min": 0
+                },
+                {
+                    "name": "\u6700\u5927\u822a\u7a0b",
+                    "max": 14800,
+                    "min": 0
+                },
+                {
+                    "name": "\u6700\u5927\u52a0\u6cb9\u901f\u7387",
+                    "max": 5678,
+                    "min": 0
+                },
+                {
+                    "name": "\u7a7a\u91cd",
+                    "max": 125000,
+                    "min": 0
+                },
+                {
+                    "name": "\u6700\u5927\u8d77\u98de\u91cd\u91cf",
+                    "max": 267624,
+                    "min": 0
+                }
+            ],
+            "shape": "circle",
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "radius": "60%",
+            "startAngle": 90,
+            "name": {
+                "textStyle": {}
+            },
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            },
+            "splitArea": {
+                "show": true,
+                "areaStyle": {
+                    "opacity": 0
+                }
+            },
+            "axisLine": {
+                "show": true,
+                "onZero": true,
+                "onZeroAxisIndex": 0
+            }
+        }
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "Radar Chart",
+            "target": "blank",
+            "subtext": "made by RuiZ",
+            "subtarget": "blank",
+            "bottom": "left",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ]
+};
+        chart_83e68693cce9482c90c25f5bb39164d2.setOption(option_83e68693cce9482c90c25f5bb39164d2);
+    </script>
+</body>
+</html>
 ]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2023/11/07/paper_reading/111/</url>
+    <url>/2023/11/02/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
 
@@ -107,27 +641,6 @@
       </tags>
   </entry>
   <entry>
-    <title>github page 刷新404问题</title>
-    <url>/2023/11/07/issues/github%20page%20%E5%88%B7%E6%96%B0404%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>报错情况</strong><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311091704395.png"
-                     
-                ><br>github page 刷新后404</p>
-</blockquote>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>Aurora的主题问题</p>
-]]></content>
-      <categories>
-        <category>issues</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-        <tag>github page</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python控制台无法使用plt.plot绘图</title>
     <url>/2023/11/07/issues/Python%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8plt.plot%E7%BB%98%E5%9B%BE/</url>
     <content><![CDATA[<blockquote>
@@ -156,7 +669,7 @@
 </blockquote>
 <h3 id="情况1：没有配置github的SSH-Keys"><a href="#情况1：没有配置github的SSH-Keys" class="headerlink" title="情况1：没有配置github的SSH Keys"></a>情况1：没有配置github的SSH Keys</h3><h4 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h4><p>在git bash中，输入</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure></div>
-<p>“<a class="link"   href="mailto:&#x79;&#x6f;&#x75;&#x72;&#x65;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;" >&#x79;&#x6f;&#x75;&#x72;&#x65;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109; <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>“为自己的邮箱</p>
+<p>“<a class="link"   href="mailto:&#x79;&#x6f;&#x75;&#114;&#101;&#109;&#97;&#x69;&#x6c;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;" >&#x79;&#x6f;&#x75;&#114;&#101;&#109;&#97;&#x69;&#x6c;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109; <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>“为自己的邮箱</p>
 <p>在用户的.ssh文件夹下，会生成两个密钥对，id_rsa是私钥，不可泄漏，id_rsa.pub是公钥</p>
 <h4 id="添加SSH-Key"><a href="#添加SSH-Key" class="headerlink" title="添加SSH Key"></a>添加SSH Key</h4><p>进入github的<a class="link"   href="https://github.com/settings/keys" >settings <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>中，点击New SSH Key，在Key中粘贴id_rsa.pub的文件内容</p>
 <img  
@@ -175,5 +688,44 @@
         <tag>github</tag>
         <tag>ssh</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>github page 刷新404问题</title>
+    <url>/2023/11/07/issues/github%20page%20%E5%88%B7%E6%96%B0404%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>报错情况</strong><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311091704395.png"
+                     
+                ><br>github page 刷新后404</p>
+</blockquote>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>Aurora的主题问题</p>
+]]></content>
+      <categories>
+        <category>issues</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>github page</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/11/07/paper_reading/111/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
   </entry>
 </search>
