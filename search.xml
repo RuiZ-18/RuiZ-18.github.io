@@ -113,7 +113,7 @@
 <p><strong>报错情况</strong><br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/RuiZ-18/RuiZ-18.github.io-picgo/main/202311070748724.png"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311091704395.png"
                      
                 ><br>github page 刷新后404</p>
 </blockquote>
@@ -134,7 +134,7 @@
 <p><strong>报错情况</strong><br>在Python的控制台中使用plt.plot()函数时，无法绘制出图像，直接卡住<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/RuiZ-18/RuiZ-18.github.io-picgo/main/202311071955659.png"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311091703776.png"
                       width="80%"
                 ></p>
 </blockquote>
@@ -156,7 +156,7 @@
 </blockquote>
 <h3 id="情况1：没有配置github的SSH-Keys"><a href="#情况1：没有配置github的SSH-Keys" class="headerlink" title="情况1：没有配置github的SSH Keys"></a>情况1：没有配置github的SSH Keys</h3><h4 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h4><p>在git bash中，输入</p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure></div>
-<p>“<a class="link"   href="mailto:&#121;&#111;&#x75;&#114;&#x65;&#x6d;&#97;&#105;&#x6c;&#64;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;" >&#121;&#111;&#x75;&#114;&#x65;&#x6d;&#97;&#105;&#x6c;&#64;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d; <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>“为自己的邮箱</p>
+<p>“<a class="link"   href="mailto:&#x79;&#x6f;&#x75;&#x72;&#x65;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;" >&#x79;&#x6f;&#x75;&#x72;&#x65;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109; <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>“为自己的邮箱</p>
 <p>在用户的.ssh文件夹下，会生成两个密钥对，id_rsa是私钥，不可泄漏，id_rsa.pub是公钥</p>
 <h4 id="添加SSH-Key"><a href="#添加SSH-Key" class="headerlink" title="添加SSH Key"></a>添加SSH Key</h4><p>进入github的<a class="link"   href="https://github.com/settings/keys" >settings <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>中，点击New SSH Key，在Key中粘贴id_rsa.pub的文件内容</p>
 <img  
