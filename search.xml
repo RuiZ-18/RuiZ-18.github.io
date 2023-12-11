@@ -553,179 +553,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Python控制台无法使用plt.plot绘图</title>
-    <url>/2023/11/07/issues/Python%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8plt.plot%E7%BB%98%E5%9B%BE/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>报错情况</strong>
-在Python的控制台中使用plt.plot()函数时，无法绘制出图像，直接卡住
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311091703776.png"
-                      width="80%"
-                ></p>
-</blockquote>
-<h3 id="解决方案">解决方案</h3>
-<p>在代码中添加 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.use(<span class="string">&#x27;TkAgg&#x27;</span>)</span><br></pre></td></tr></table></figure></div></p>
-]]></content>
-      <categories>
-        <category>issues</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>matplotlib</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pyecharts图像插入hexo中</title>
-    <url>/2023/11/08/explore/pyecharts%E5%9B%BE%E5%83%8F%E6%8F%92%E5%85%A5hexo%E4%B8%AD/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>完成效果</strong>
-pyecharts渲染出的html作为元素插入到hexo中</p>
-</blockquote>
-<h3 id="实现方法">实现方法</h3>
-<h4 id="复制html到指定路径设置hexo不渲染">1.
-复制html到指定路径，设置hexo不渲染</h4>
-<p>复制渲染出的html文件，例如RadarChart.html，在html文件最开始位置插入如下片段
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure></div> 不让hexo渲染该html文件</p>
-<h4 id="采用iframe的方式插入">2. 采用iframe的方式插入</h4>
-<p>需要设置RadarChart.html的文件路径，这里我们在source文件夹下新建一个appendix文件夹，添加RadarChart.html，在经过hexo生成后，会生成在public/appendix目录下，设置好RadarChart.html的文件路径即可。</p>
-<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;../../../../../appendix/RadarChart.html&quot;</span> <span class="attr">height</span>=<span class="string">&quot;520px&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;yes&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-<h5 id="效果展示">效果展示</h5>
-<!-- <!DOCTYPE html> -->
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-</head>
-<body>
-<iframe src="../../../../../appendix/RadarChart.html" height="520px" width="100%" scrolling="yes">
-</iframe>
-</body>
-<p>不难发现，渲染后的图像无法自适应大小。可以在iframe外再设计一个div，来控制iframe的自定义缩放</p>
-<blockquote>
-<p>有bug</p>
-</blockquote>
-<!-- <!DOCTYPE html> -->
-<!-- <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-</head>
-<body>
-<style>
-        .box111 {
-            position: relative;
-            overflow: hidden;
-            width: 540px;
-            height: 340px;
-            margin: 0 auto;
-            border: 1px solid black;
-        }
-</style>
-<div class="box111">
-        <iframe 
-            width="180%" 
-            height="180%" 
-            scrolling="yes"
-            src="../../../../../appendix/RadarChart.html" 
-            frameborder="0"
-            scrolling="yes"
-            style="transform: scale(0.6); position:absolute; left: -200px; top: -90px"
-            >
-        </iframe>
-    </div>
-</body> -->
-<blockquote>
-<p>div的大小为540*300，原图为900**500，设置比例为10:6</p>
-</blockquote>
-<blockquote>
-<p>上面两种方法都存在bug，当页面存在侧边栏的时候，第一种会出现滚轮条，不便于查看，第二种会超出边界</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>explore</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pyecharts</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>github page 刷新404问题</title>
-    <url>/2023/11/07/issues/github%20page%20%E5%88%B7%E6%96%B0404%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>报错情况</strong>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311091704395.png"
-                     
-                >
-github page 刷新后404</p>
-</blockquote>
-<h3 id="解决方法">解决方法</h3>
-<p>Aurora的主题问题</p>
-]]></content>
-      <categories>
-        <category>issues</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-        <tag>github page</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo公式显示问题</title>
-    <url>/2023/11/11/issues/hexo%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<blockquote>
-<p>公式无法居中，无法用\\换行</p>
-</blockquote>
-<h3 id="解决方法">解决方法</h3>
-<p>暂未解决</p>
-]]></content>
-      <categories>
-        <category>issues</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>mathjax</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ssh连接github问题</title>
-    <url>/2023/11/06/issues/ssh%E8%BF%9E%E6%8E%A5github%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>报错情况</strong> ssh: connect to host github.com port 22:
-Connection refused fatal: Could not read from remote repository.</p>
-<h3 id="情况1没有配置github的ssh-keys">情况1：没有配置github的SSH
-Keys</h3>
-<h4 id="生成密钥">生成密钥</h4>
-<p>在git bash中，输入 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure></div>
-"youremail@example.com"为自己的邮箱</p>
-</blockquote>
-<p>在用户的.ssh文件夹下，会生成两个密钥对，id_rsa是私钥，不可泄漏，id_rsa.pub是公钥</p>
-<h4 id="添加ssh-key">添加SSH Key</h4>
-<p>进入github的<a class="link" 
- href="https://github.com/settings/keys" >settings <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>中，点击New SSH
-Key，在Key中粘贴id_rsa.pub的文件内容</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/RuiZ-18/RuiZ-18.github.io-picgo/main/202311062149918.png"
-                      width="80%"
-                ></p>
-<h3 id="情况2使用了某种代理">情况2：使用了某种代理</h3>
-<p>例如使用了Watt Toolkit加速github，可能使得22端口被占用，关闭即可</p>
-]]></content>
-      <categories>
-        <category>issues</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-        <tag>ssh</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Kendall Tau-c(1953)</title>
     <url>/2023/11/10/reference/Kendall%20Tau-abc/</url>
     <content><![CDATA[<blockquote>
@@ -881,6 +708,256 @@ for <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg styl
       </categories>
       <tags>
         <tag>correlation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pyecharts图像插入hexo中</title>
+    <url>/2023/11/08/explore/pyecharts%E5%9B%BE%E5%83%8F%E6%8F%92%E5%85%A5hexo%E4%B8%AD/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>完成效果</strong>
+pyecharts渲染出的html作为元素插入到hexo中</p>
+</blockquote>
+<h3 id="实现方法">实现方法</h3>
+<h4 id="复制html到指定路径设置hexo不渲染">1.
+复制html到指定路径，设置hexo不渲染</h4>
+<p>复制渲染出的html文件，例如RadarChart.html，在html文件最开始位置插入如下片段
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure></div> 不让hexo渲染该html文件</p>
+<h4 id="采用iframe的方式插入">2. 采用iframe的方式插入</h4>
+<p>需要设置RadarChart.html的文件路径，这里我们在source文件夹下新建一个appendix文件夹，添加RadarChart.html，在经过hexo生成后，会生成在public/appendix目录下，设置好RadarChart.html的文件路径即可。</p>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;../../../../../appendix/RadarChart.html&quot;</span> <span class="attr">height</span>=<span class="string">&quot;520px&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;yes&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="效果展示">效果展示</h5>
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<iframe src="../../../../../appendix/RadarChart.html" height="520px" width="100%" scrolling="yes">
+</iframe>
+</body>
+<p>不难发现，渲染后的图像无法自适应大小。可以在iframe外再设计一个div，来控制iframe的自定义缩放</p>
+<blockquote>
+<p>有bug</p>
+</blockquote>
+<!-- <!DOCTYPE html> -->
+<!-- <html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<style>
+        .box111 {
+            position: relative;
+            overflow: hidden;
+            width: 540px;
+            height: 340px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+</style>
+<div class="box111">
+        <iframe 
+            width="180%" 
+            height="180%" 
+            scrolling="yes"
+            src="../../../../../appendix/RadarChart.html" 
+            frameborder="0"
+            scrolling="yes"
+            style="transform: scale(0.6); position:absolute; left: -200px; top: -90px"
+            >
+        </iframe>
+    </div>
+</body> -->
+<blockquote>
+<p>div的大小为540*300，原图为900**500，设置比例为10:6</p>
+</blockquote>
+<blockquote>
+<p>上面两种方法都存在bug，当页面存在侧边栏的时候，第一种会出现滚轮条，不便于查看，第二种会超出边界</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>explore</category>
+      </categories>
+      <tags>
+        <tag>pyecharts</tag>
+        <tag>hexo</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python控制台无法使用plt.plot绘图</title>
+    <url>/2023/11/07/issues/Python%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8plt.plot%E7%BB%98%E5%9B%BE/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>报错情况</strong>
+在Python的控制台中使用plt.plot()函数时，无法绘制出图像，直接卡住
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311091703776.png"
+                      width="80%"
+                ></p>
+</blockquote>
+<h3 id="解决方案">解决方案</h3>
+<p>在代码中添加 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.use(<span class="string">&#x27;TkAgg&#x27;</span>)</span><br></pre></td></tr></table></figure></div></p>
+]]></content>
+      <categories>
+        <category>issues</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>appium用法</title>
+    <url>/2023/11/29/explore/appium%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="环境配置">环境配置</h3>
+<h4 id="安装jdk8">1. 安装jdk8</h4>
+<p>并添加环境变量
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311290909306.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311290910569.png"
+                     
+                ></p>
+<h4 id="安装android-sdk">2. 安装Android SDK</h4>
+<p><a class="link"   href="https://www.androiddevtools.cn/" >下载链接 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>安装
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311291012470.png"
+                     
+                ></p>
+<p>打开SDK Manager，选择SDK和API安装</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311290925391.png"
+                     
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311290926190.png"
+                     
+                ></p>
+<h4 id="安装appium-gui">3. 安装Appium GUI</h4>
+<p><a class="link" 
+ href="https://github.com/appium/appium-desktop/releases" >下载链接 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>配置sdk和jdk的路径</p>
+<h5 id="section">4.</h5>
+]]></content>
+      <categories>
+        <category>explore</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>github page 刷新404问题</title>
+    <url>/2023/11/07/issues/github%20page%20%E5%88%B7%E6%96%B0404%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>报错情况</strong>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202311091704395.png"
+                     
+                >
+github page 刷新后404</p>
+</blockquote>
+<h3 id="解决方法">解决方法</h3>
+<p>Aurora的主题问题</p>
+]]></content>
+      <categories>
+        <category>issues</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>github page</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo公式显示问题</title>
+    <url>/2023/11/11/issues/hexo%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p>公式无法居中，无法用\\换行</p>
+</blockquote>
+<h3 id="解决方法">解决方法</h3>
+<p>暂未解决</p>
+]]></content>
+      <categories>
+        <category>issues</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>mathjax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscode使用xelatex问题</title>
+    <url>/2023/12/08/issues/libiomp5.dll%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>报错情况</strong></p>
+<p>jupyter notebook终端报错
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ruiz18-bucket.oss-cn-wuhan-lr.aliyuncs.com/blog/202312082339633.png"
+                     
+                ></p>
+<h3 id="解决方案">解决方案</h3>
+<p>搜索libiomp5.dll发现确实有两个，一个位于环境中，一个位于torch库中，删除环境中的即可</p>
+</blockquote>
+<p>路劲为"D:"</p>
+]]></content>
+      <categories>
+        <category>issues</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ssh连接github问题</title>
+    <url>/2023/11/06/issues/ssh%E8%BF%9E%E6%8E%A5github%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>报错情况</strong> ssh: connect to host github.com port 22:
+Connection refused fatal: Could not read from remote repository.</p>
+<h3 id="情况1没有配置github的ssh-keys">情况1：没有配置github的SSH
+Keys</h3>
+<h4 id="生成密钥">生成密钥</h4>
+<p>在git bash中，输入 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure></div>
+"youremail@example.com"为自己的邮箱</p>
+</blockquote>
+<p>在用户的.ssh文件夹下，会生成两个密钥对，id_rsa是私钥，不可泄漏，id_rsa.pub是公钥</p>
+<h4 id="添加ssh-key">添加SSH Key</h4>
+<p>进入github的<a class="link" 
+ href="https://github.com/settings/keys" >settings <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>中，点击New SSH
+Key，在Key中粘贴id_rsa.pub的文件内容</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/RuiZ-18/RuiZ-18.github.io-picgo/main/202311062149918.png"
+                      width="80%"
+                ></p>
+<h3 id="情况2使用了某种代理">情况2：使用了某种代理</h3>
+<p>例如使用了Watt Toolkit加速github，可能使得22端口被占用，关闭即可</p>
+]]></content>
+      <categories>
+        <category>issues</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
